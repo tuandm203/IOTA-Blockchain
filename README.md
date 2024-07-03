@@ -79,6 +79,9 @@ To install and run IOTA Sandbox, you should install all requirement below:
 
 <!-- GETTING STARTED -->
 ## RUN
+Copy .env.example .env
+    cp .env.example .env
+
 Start IOTA SandBox:
 
     docker compose up -d
