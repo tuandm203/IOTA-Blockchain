@@ -1,0 +1,23 @@
+import json
+import os
+
+from dotenv import load_dotenv
+
+from iota_sdk import Wallet
+
+# This example checks the balance of an account.
+
+# This example uses secrets in environment variables for simplicity which
+# should not be done in production.
+load_dotenv()
+
+wallet = Wallet(os.environ['WALLET_DB_PATH'])
+
+account = wallet.get_account(os.environ['USER_NAME'])
+
+# Sync account with the node
+_balance = account.sync()
+
+# Just calculate the balance with the known state
+balance = account.get_balance()
+print(f'Balance {json.dumps(balance.as_dict(), indent=4)}')
